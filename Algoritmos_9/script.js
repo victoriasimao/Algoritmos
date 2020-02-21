@@ -19,6 +19,8 @@ console.log(x,y);
 /* Factorial - Escribe una función factorial(num) que, dado un número, devuelva el producto (multiplicación) de todos
 los enteros positivos (incluyendo el número dado). Por ejemplo: factorial(3) = 6 (1*2*3); factorial(5) = 120 (1*2*3*4*5).*/
 
+// Opción 1 iterativa
+
 function factorial (num){
   var producto= 1
   for (var i=1; i<=num; i++){
@@ -30,12 +32,27 @@ x=factorial(3);
 y=factorial(5)
 console.log(x,y);
 
+// Opción 2 recursiva
+
+function factorial (n){
+  if(n<2){
+    return n;
+  }
+  return n * factorial (n-1);
+}
+console.log(factorial(3));
+console.log(factorial(5));
+
 // Ejercicio 3
 
 /* Fibonacci - Crea una función para generar números de Fibonacci. En esta famosa secuencia matemática,
 cada número es la suma de las dos anteriores, partiendo con los valores 0 y 1. Tu función debería aceptar un argumento,
 un índice en la secuencia (donde 0 corresponde al valor inicial, 4 corresponden al valor cuatro más tarde, etc).
 Ejemplos: fibonacci(0) = 0 (dado), fibonacci(1) = 1 (dado), fibonacci(2) = 1 (fib(0)+fib(1), o 0+1), fibonacci(3) = 2 (fib(1) + fib(2)3, o 1+1), fibonacci(4) = 3 (1+2), fibonacci(5) = 5 (2+3), fibonacci(6) = 8 (3+5), fibonacci(7) = 13 (5+8). Haz esto primero sin usar recursión. Si no sabes qué es una recursión, no te preocupes puesto que vamos a introducir este concepto en la Parte 2 de esta actividad. */
+
+/* Fibonacci Iterativo */
+
+// Opción 1
 
 function fibonacci (num){
   var numeros= [0,1]
@@ -46,6 +63,46 @@ function fibonacci (num){
 }
 x=fibonacci(7);
 console.log(x);
+
+// Opción 2
+
+function fibonacci(num){
+  var numeros= [0,1]
+  var i=2;
+  while( i<=num){
+    numeros[i]= numeros[i-1]+numeros[i-2]
+    i++ // i=i+1
+  }
+  return numeros
+}
+console.log(fibonacci(7))
+
+/* Fibonacci Recursivo */
+
+// Opcion 1
+
+function fib(n){
+  if(n===0||n===1){ //n<2
+   return n;
+  }
+  return fib(n-1)+fib(n-2)
+}
+console.log(fib(7));
+
+// Opcion 2
+
+function fib(n){
+  if(n===0){
+   return n;
+  }
+  else if(n===1){
+    return 1
+  }
+  else{
+    return fib(n-1)+fib(n-2)
+  }
+}
+console.log(fib(12));
 
 // Ejercicio 4
 
